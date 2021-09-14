@@ -100,20 +100,20 @@ class Battleship {
     }
 
     GetRandomPosition() {
-      const rows = 8;
-      const lines = 8;
-      while (true) {
-        var rndColumn = Math.floor((Math.random() * lines));
-        var letter = letters.get(rndColumn + 1);
-        var number = Math.floor((Math.random() * rows));
-        var nextPosition = new position(letter, number);
-        // Check if the nextPosition is in the history of Computer's guesses
-        if (!computerHistory.has(`${letter}${number}`)) {
-          computerHistory.add(`${letter}${number}`);
-          return nextPosition;
+        const rows = 8;
+        const lines = 8;
+        while (true) {
+            var rndColumn = Math.floor((Math.random() * lines));
+            var letter = letters.get(rndColumn + 1);
+            var number = Math.floor((Math.random() * rows));
+            var nextPosition = new position(letter, number);
+            // Check if the nextPosition is in the history of Computer's guesses
+            if (!computerHistory.has(`${letter}${number}`)) {
+                computerHistory.add(`${letter}${number}`);
+                return nextPosition;
+            }
+            // If it is is hitory come up with a new `nextPosition' in the next interation
         }
-        // If it is is hitory come up with a new `nextPosition' in the next interation
-      }
     }
 
     InitializeGame() {
@@ -123,7 +123,7 @@ class Battleship {
     }
 
     InitializeMyFleet() {
-        console.log("Initializing my fleet");
+        // console.log("Initializing my fleet");
         this.myFleet = gameController.InitializeShips();
 
         console.log("Please position your fleet (Game board size is from A to H and 1 to 8) :");
@@ -140,11 +140,11 @@ class Battleship {
     }
 
     InitializeEnemyFleet() {
-        console.log("Initializing enemy fleet");
+        // console.log("Initializing enemy fleet");
         // this.enemyFleet = gameController.InitializeShips();
         this.enemyFleet = new Fleet();
 
-        console.log("calling placeShipsRandomly");
+        // console.log("calling placeShipsRandomly");
         this.enemyFleet.placeShipsRandomly();
         return this.enemyFleet;
         // this.enemyFleet[0].addPosition(new position(letters.B, 4));

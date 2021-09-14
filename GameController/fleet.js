@@ -15,7 +15,7 @@ class Fleet {
   }
 
   placeShipsRandomly() {
-    console.log("Placing ships randomly...");
+    // console.log("Placing ships randomly...");
     // Place the ships randomly
     for (let i = 0; i < this.ships.length; i++) {
       var shipPlaced = false;
@@ -36,7 +36,7 @@ class Fleet {
   placeShip(ship, x, y, direction) {
     // Check if the ship can be placed
     if (this.canPlaceShip(ship, x, y, direction)) {
-      console.log("Placing ship " + ship.name + " at (" + x + ", " + y + ")");
+      // console.log("Placing ship " + ship.name + " at (" + x + ", " + y + ")");
       // Place the ship
       ship.place(x, y, direction);
       return true;
