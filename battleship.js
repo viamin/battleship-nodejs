@@ -5,6 +5,10 @@ const beep = require('beepbeep');
 const position = require("./GameController/position.js");
 const letters = require("./GameController/letters.js");
 
+// Initialize list to track Computer's guesses
+const computerHistory = new Set();
+
+
 class Battleship {
 
     start() {
@@ -64,7 +68,6 @@ class Battleship {
             }
 
 
-
             var computerPos = this.GetRandomPosition();
             var isHit = gameController.CheckIsHit(this.myFleet, computerPos);
             console.log();
@@ -96,13 +99,20 @@ class Battleship {
     }
 
     GetRandomPosition() {
-        var rows = 8;
-        var lines = 8;
+      const rows = 8;
+      const lines = 8;
+      while (true) {
         var rndColumn = Math.floor((Math.random() * lines));
         var letter = letters.get(rndColumn + 1);
         var number = Math.floor((Math.random() * rows));
-        var result = new position(letter, number);
-        return result;
+        var nextPosition = new position(letter, number);
+        // Check if the nextPosition is in the history of Computer's guesses
+        if (!computerHistory.has(`${letter}${number}`)) {
+          computerHistory.add(`${letter}${number}`);
+          return nextPosition;
+        }
+        // If it is is hitory come up with a new `nextPosition' in the next interation
+      }
     }
 
     InitializeGame() {
