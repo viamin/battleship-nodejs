@@ -35,7 +35,7 @@ class Battleship {
         console.log();
 
 
-        name = readline.question("Enter your name:");
+        name = readline.question("Enter your name: ");
 
         this.InitializeGame();
         this.StartGame();
@@ -148,7 +148,6 @@ class Battleship {
             this.PrintEnemyFleet();
             console.log("Enter coordinates for your shot (e.g. A3):");
             var position = Battleship.ParsePosition(readline.question());
-            // console.log(position);
             var isHit = gameController.CheckIsHit(this.enemyFleet.ships, position);
             if (isHit) {
                 beep();

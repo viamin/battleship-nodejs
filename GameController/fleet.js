@@ -26,9 +26,15 @@ class Fleet {
   }
 
   placeShipRandomly(ship) {
-    let x = Math.floor(Math.random() * 8) + 1;
-    let y = Math.floor(Math.random() * 8) + 1;
     let direction = Math.floor(Math.random() * 2);
+    let x, y;
+    if (direction === 0) { // Horizontal
+      x = Math.floor(Math.random() * (7)) + 1;
+      y = Math.floor(Math.random() * (7 - ship.size)) + 1;
+    } else {
+      x = Math.floor(Math.random() * (7 - ship.size)) + 1;
+      y = Math.floor(Math.random() * (7)) + 1;
+    }
     return this.placeShip(ship, x, y, direction);
   }
 

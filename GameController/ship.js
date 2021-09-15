@@ -30,14 +30,16 @@ class Ship {
         // direction 0 -> horizontal, 1 -> vertical
         if (direction === 0) {
             for (let i = 0; i < ship.size; i++) {
-                if (this.positions.includes(`${x + i}${y}`)) {
+                var checkPosition = new Position(letters.get(x + i), y);
+                if (this.positions.includes(checkPosition)) {
                     overlaps = true;
                 }
             }
         } else {
             // vertical
             for (let i = 0; i < ship.size; i++) {
-                if (this.positions.includes(`${x}${y + i}`)) {
+                var checkPosition = new Position(letters.get(x), y + i);
+                if (this.positions.includes(checkPosition)) {
                     overlaps = true;
                 }
             }
