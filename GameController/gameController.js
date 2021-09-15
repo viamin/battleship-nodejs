@@ -4,13 +4,6 @@ class GameController {
         const Ship = require("./ship.js");
         const Fleet = require("./fleet.js");
         var myFleet = new Fleet();
-        // var ships = [
-        //     new Ship("Aircraft Carrier", 5, colors.CadetBlue),
-        //     new Ship("Battleship", 4, colors.Red),
-        //     new Ship("Submarine", 3, colors.Chartreuse),
-        //     new Ship("Destroyer", 3, colors.Yellow),
-        //     new Ship("Patrol Boat", 2, colors.Orange)
-        // ];
         return myFleet;
     }
 
@@ -22,7 +15,9 @@ class GameController {
         var returnvalue = false;
         ships.forEach(function (ship) {
             ship.positions.forEach(position => {
+                console.log(`${ship.name}: ${position.toString()}`);
                 if (position.row == shot.row && position.column == shot.column) {
+                    console.log("row and column matched!")
                     ship.addHit(position);
                     returnvalue = true;
                 }

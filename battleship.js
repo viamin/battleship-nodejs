@@ -51,6 +51,7 @@ class Battleship {
             this.PrintEnemyFleet();
             console.log("Enter coordinates for your shot (e.g. A3):");
             var position = Battleship.ParsePosition(readline.question());
+            // console.log(position);
             var isHit = gameController.CheckIsHit(this.enemyFleet.ships, position);
             if (isHit) {
                 beep();
@@ -67,7 +68,10 @@ class Battleship {
             } else {
                 console.log(cliColor.blue("Miss"));
             }
-
+            if (this.enemyFleet.isSunk()) {
+                console.log(cliColor.green("You are the winner!"));
+                break;
+            }
 
             var computerPos = this.GetRandomPosition();
             var isHit = gameController.CheckIsHit(this.myFleet.ships, computerPos);
@@ -88,14 +92,22 @@ class Battleship {
             } else {
                 console.log(cliColor.green(`Computer shot in ${computerPos.column}${computerPos.row} and missed.`));
             }
+            if (this.myFleet.isSunk()) {
+                console.log(cliColor.red("You lost!"));
+                break;
+            }
             console.log("\n_________________________________________________________________________\n");
         }
         while (true);
     }
 
     static ParsePosition(input) {
+        if (input === "djkhaled") {
+            console.log(cliColor.yellow("\nAll I do is win, win, win no matter what!\n"));
+            process.exit(0);
+        }
         var letter = letters.get(input.toUpperCase().substring(0, 1));
-        var number = parseInt(input.substring(1, 2), 10);
+        var number = parseInt(input.substring(1), 10);
         return new position(letter, number);
     }
 
@@ -118,7 +130,7 @@ class Battleship {
 
     InitializeGame() {
         var enemyFleet = this.InitializeEnemyFleet();
-        // console.log(enemyFleet.ships);
+        console.log(enemyFleet.ships);
         this.InitializeMyFleet();
     }
 
@@ -141,33 +153,11 @@ class Battleship {
 
     InitializeEnemyFleet() {
         // console.log("Initializing enemy fleet");
-        // this.enemyFleet = gameController.InitializeShips();
         this.enemyFleet = new Fleet();
 
         // console.log("calling placeShipsRandomly");
         this.enemyFleet.placeShipsRandomly();
         return this.enemyFleet;
-        // this.enemyFleet[0].addPosition(new position(letters.B, 4));
-        // this.enemyFleet[0].addPosition(new position(letters.B, 5));
-        // this.enemyFleet[0].addPosition(new position(letters.B, 6));
-        // this.enemyFleet[0].addPosition(new position(letters.B, 7));
-        // this.enemyFleet[0].addPosition(new position(letters.B, 8));
-
-        // this.enemyFleet[1].addPosition(new position(letters.E, 6));
-        // this.enemyFleet[1].addPosition(new position(letters.E, 7));
-        // this.enemyFleet[1].addPosition(new position(letters.E, 8));
-        // this.enemyFleet[1].addPosition(new position(letters.E, 9));
-
-        // this.enemyFleet[2].addPosition(new position(letters.A, 3));
-        // this.enemyFleet[2].addPosition(new position(letters.B, 3));
-        // this.enemyFleet[2].addPosition(new position(letters.C, 3));
-
-        // this.enemyFleet[3].addPosition(new position(letters.F, 8));
-        // this.enemyFleet[3].addPosition(new position(letters.G, 8));
-        // this.enemyFleet[3].addPosition(new position(letters.H, 8));
-
-        // this.enemyFleet[4].addPosition(new position(letters.C, 5));
-        // this.enemyFleet[4].addPosition(new position(letters.C, 6));
     }
 
     PrintEnemyFleet() {
