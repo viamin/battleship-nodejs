@@ -5,11 +5,11 @@ class Fleet {
   constructor() {
     // this.name = name;
     this.ships = [
-      new Ship("Aircraft Carrier", 5, colors.CadetBlue),
-      new Ship("Battleship", 4, colors.Red),
-      new Ship("Submarine", 3, colors.Chartreuse),
-      new Ship("Destroyer", 3, colors.Yellow),
-      new Ship("Patrol Boat", 2, colors.Orange)
+      new Ship("Aircraft Carrier", 5, colors.blue()),
+      new Ship("Battleship", 4, colors.red()),
+      new Ship("Submarine", 3, colors.green()),
+      // new Ship("Destroyer", 3, colors.yellow()),
+      new Ship("Patrol Boat", 2, colors.redBright())
     ];
     // console.log(this.ships)
   }
@@ -52,6 +52,15 @@ class Fleet {
         if (this.ships[i].overlaps(ship, x, y, direction)) {
           return false;
         }
+      }
+    }
+    return true;
+  }
+
+  isSunk() {
+    for (let i = 0; i < this.ships.length; i++) {
+      if (this.ships[i].isSunk() === "Not Sunk") {
+        return false;
       }
     }
     return true;

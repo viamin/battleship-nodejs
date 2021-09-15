@@ -1,10 +1,11 @@
+const Position = require("./position");
+const letters = require("./letters.js");
+
 class Ship {
     constructor(name, size, color, x, y, direction) {
         this.name = name;
         this.size = size;
         this.color = color;
-        this.x = x;
-        this.y = y;
         this.direction = direction;
         this.positions = [];
         this.hits = [];
@@ -48,12 +49,14 @@ class Ship {
         // direction 0 -> horizontal, 1 -> vertical
         if (direction === 0) {
             for (let i = 0; i < this.size; i++) {
-                this.addPosition(`${x + i}${y}`);
+                var letter = letters.get(x + i);
+                this.addPosition(new Position(letter, y));
             }
         } else {
             // vertical
+            var letter = letters.get(x);
             for (let i = 0; i < this.size; i++) {
-                this.addPosition(`${x}${y + i}`);
+                this.addPosition(new Position(letter, y + i));
             }
         }
     }
