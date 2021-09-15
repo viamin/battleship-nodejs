@@ -170,7 +170,6 @@ class Battleship {
             }
             if (this.enemyFleet.isSunk()) {
                 this.userWins();
-                // console.log(cliColor.green("You are the winner!"));
                 break;
             }
 
@@ -195,7 +194,6 @@ class Battleship {
             }
             if (this.myFleet.isSunk()) {
                 this.computerWins();
-                // console.log(cliColor.red("You lost!"));
                 break;
             }
             console.log("\n_________________________________________________________________________\n");
@@ -205,7 +203,6 @@ class Battleship {
 
     static ParsePosition(input) {
         if (input === "djkhaled") {
-            // console.log(cliColor.yellow("\nAll I do is win, win, win no matter what!\n"));
             return "djkhaled";
         }
         var letter = letters.get(input.toUpperCase().substring(0, 1));
@@ -237,7 +234,6 @@ class Battleship {
     }
 
     InitializeMyFleet() {
-        // console.log("Initializing my fleet");
         this.myFleet = gameController.InitializeShips();
 
         console.log("Please position your fleet (Game board size is from A to H and 1 to 8) :");
@@ -254,10 +250,7 @@ class Battleship {
     }
 
     InitializeEnemyFleet() {
-        // console.log("Initializing enemy fleet");
         this.enemyFleet = new Fleet();
-
-        // console.log("calling placeShipsRandomly");
         this.enemyFleet.placeShipsRandomly();
         return this.enemyFleet;
     }

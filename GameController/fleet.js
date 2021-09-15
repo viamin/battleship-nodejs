@@ -3,7 +3,6 @@ const colors = require("cli-color");
 
 class Fleet {
   constructor() {
-    // this.name = name;
     this.ships = [
       new Ship("Aircraft Carrier", 5, colors.blue()),
       new Ship("Battleship", 4, colors.red()),
@@ -11,11 +10,9 @@ class Fleet {
       // new Ship("Destroyer", 3, colors.yellow()),
       new Ship("Patrol Boat", 2, colors.redBright())
     ];
-    // console.log(this.ships)
   }
 
   placeShipsRandomly() {
-    // console.log("Placing ships randomly...");
     // Place the ships randomly
     for (let i = 0; i < this.ships.length; i++) {
       var shipPlaced = false;
@@ -42,7 +39,6 @@ class Fleet {
   placeShip(ship, x, y, direction) {
     // Check if the ship can be placed
     if (this.canPlaceShip(ship, x, y, direction)) {
-      // console.log("Placing ship " + ship.name + " at (" + x + ", " + y + ")");
       // Place the ship
       ship.place(x, y, direction);
       return true;

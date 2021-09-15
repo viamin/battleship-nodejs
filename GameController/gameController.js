@@ -15,7 +15,9 @@ class GameController {
         var returnvalue = false;
         ships.forEach(function (ship) {
             ship.positions.forEach(position => {
+
                 console.log(`${ship.name}: ${position.toString()}`);
+
                 if (position.row == shot.row && position.column == shot.column) {
                     console.log("row and column matched!")
                     ship.addHit(position);
