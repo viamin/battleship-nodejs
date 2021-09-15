@@ -1,3 +1,4 @@
+const logo = require('asciiart-logo');
 const readline = require('readline-sync');
 const gameController = require("./GameController/gameController.js");
 const cliColor = require('cli-color');
@@ -5,10 +6,15 @@ const beep = require('beepbeep');
 const position = require("./GameController/position.js");
 const letters = require("./GameController/letters.js");
 const Fleet = require("./GameController/fleet.js");
+const fonts = require("./fonts");
 
 // Initialize list to track Computer's guesses
 const computerHistory = new Set();
+let name = 'Anonymous';
 
+const colors = [
+  "red", "green", "blue", "yellow", "magenta", "cyan",
+]
 
 class Battleship {
 
@@ -28,8 +34,99 @@ class Battleship {
         console.log(cliColor.white(" \\_________________________________________________________________________|"));
         console.log();
 
+
+        name = readline.question("Enter your name:");
+
         this.InitializeGame();
         this.StartGame();
+    }
+
+    /**
+     * Display a message when user wins
+     */
+    userWins() {
+      console.clear();
+      console.log(
+        logo({
+          name,
+          font: fonts[Math.floor(Math.random() * fonts.length)],
+          logoColor: colors[Math.floor(Math.random() * colors.length)],
+          borderColor: colors[Math.floor(Math.random() * colors.length)],
+        })
+        .emptyLine()
+        .center('General! You saved the day!!!')
+        .render()
+      );
+			console.log(cliColor.yellow("     _______________"));
+			console.log(cliColor.yellow("    |@@@@|     |####|"));
+			console.log(cliColor.yellow("    |@@@@|     |####|"));
+			console.log(cliColor.yellow("    |@@@@|     |####|"));
+			console.log(cliColor.yellow("    \\@@@@|     |####/"));
+			console.log(cliColor.yellow("     \\@@@|     |###/"));
+			console.log(cliColor.yellow("      `@@|_____|##'"));
+			console.log(cliColor.yellow("           (O)"));
+			console.log(cliColor.yellow("        .-'''''-."));
+			console.log(cliColor.yellow("      .'  * * *  `."));
+			console.log(cliColor.yellow("     :  *       *  :"));
+			console.log(cliColor.yellow(`    : ~   ${cliColor.green('Y O U')}   ~ :`));
+			console.log(cliColor.yellow(`    : ~   ${cliColor.green('W I N !')} ~ :`));
+			console.log(cliColor.yellow("     :  *       *  :"));
+			console.log(cliColor.yellow("      `.  * * *  .'"));
+			console.log(cliColor.yellow("        `-.....-'"));
+
+    }
+
+    /**
+     * Display a message when house wins
+     */
+    computerWins() {
+      console.clear();
+      console.log(
+        logo({
+          name: 'YOU LOSE!',
+          font: fonts[Math.floor(Math.random() * fonts.length)],
+          logoColor: colors[Math.floor(Math.random() * colors.length)],
+          borderColor: colors[Math.floor(Math.random() * colors.length)],
+        })
+        .emptyLine()
+        .render()
+      );
+    }
+
+
+    /**
+     * You know what it is
+     */
+    djkhaledwins() {
+      console.clear();
+      console.log(
+        logo({
+          name,
+          font: fonts[Math.floor(Math.random() * fonts.length)],
+          logoColor: colors[Math.floor(Math.random() * colors.length)],
+          borderColor: colors[Math.floor(Math.random() * colors.length)],
+        })
+        .emptyLine()
+        .center('General! You have unlocked the sacred power!')
+        .render()
+      );
+			console.log(cliColor.cyan("     _______________"));
+			console.log(cliColor.cyan("    |@@@@|     |####|"));
+			console.log(cliColor.cyan("    |@@@@|     |####|"));
+			console.log(cliColor.cyan("    |@@@@|     |####|"));
+			console.log(cliColor.cyan("    \\@@@@|     |####/"));
+			console.log(cliColor.cyan("     \\@@@|     |###/"));
+			console.log(cliColor.cyan("      `@@|_____|##'"));
+			console.log(cliColor.cyan("           (O)"));
+			console.log(cliColor.cyan("        .-'''''-."));
+			console.log(cliColor.cyan("      .'  * * *  `."));
+			console.log(cliColor.cyan("     :  *       *  :"));
+			console.log(cliColor.cyan(`    : ~ ${cliColor.blue('DJ KHALED')} ~ :`));
+			console.log(cliColor.cyan(`   : ~   ${cliColor.blue('ALWAYS')}    ~ :`));
+			console.log(cliColor.cyan(`    : ~   ${cliColor.blue('WINS')}    ~ :`));
+			console.log(cliColor.cyan("     :  *       *  :"));
+			console.log(cliColor.cyan("      `.  * * *  .'"));
+			console.log(cliColor.cyan("        `-.....-'"));
     }
 
     StartGame() {
