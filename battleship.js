@@ -13,7 +13,7 @@ const computerHistory = new Set();
 let name = 'Anonymous';
 
 const colors = [
-  "red", "green", "blue", "yellow", "magenta", "cyan",
+    "red", "green", "blue", "yellow", "magenta", "cyan",
 ]
 
 class Battleship {
@@ -45,34 +45,34 @@ class Battleship {
      * Display a message when user wins
      */
     userWins() {
-      console.clear();
-      console.log(
-        logo({
-          name,
-          font: fonts[Math.floor(Math.random() * fonts.length)],
-          logoColor: colors[Math.floor(Math.random() * colors.length)],
-          borderColor: colors[Math.floor(Math.random() * colors.length)],
-        })
-        .emptyLine()
-        .center('General! You saved the day!!!')
-        .render()
-      );
-			console.log(cliColor.yellow("     _______________"));
-			console.log(cliColor.yellow("    |@@@@|     |####|"));
-			console.log(cliColor.yellow("    |@@@@|     |####|"));
-			console.log(cliColor.yellow("    |@@@@|     |####|"));
-			console.log(cliColor.yellow("    \\@@@@|     |####/"));
-			console.log(cliColor.yellow("     \\@@@|     |###/"));
-			console.log(cliColor.yellow("      `@@|_____|##'"));
-			console.log(cliColor.yellow("           (O)"));
-			console.log(cliColor.yellow("        .-'''''-."));
-			console.log(cliColor.yellow("      .'  * * *  `."));
-			console.log(cliColor.yellow("     :  *       *  :"));
-			console.log(cliColor.yellow(`    : ~   ${cliColor.green('Y O U')}   ~ :`));
-			console.log(cliColor.yellow(`    : ~   ${cliColor.green('W I N !')} ~ :`));
-			console.log(cliColor.yellow("     :  *       *  :"));
-			console.log(cliColor.yellow("      `.  * * *  .'"));
-			console.log(cliColor.yellow("        `-.....-'"));
+        console.clear();
+        console.log(
+            logo({
+                name,
+                font: fonts[Math.floor(Math.random() * fonts.length)],
+                logoColor: colors[Math.floor(Math.random() * colors.length)],
+                borderColor: colors[Math.floor(Math.random() * colors.length)],
+            })
+                .emptyLine()
+                .center('General! You saved the day!!!')
+                .render()
+        );
+        console.log(cliColor.yellow("     _______________"));
+        console.log(cliColor.yellow("    |@@@@|     |####|"));
+        console.log(cliColor.yellow("    |@@@@|     |####|"));
+        console.log(cliColor.yellow("    |@@@@|     |####|"));
+        console.log(cliColor.yellow("    \\@@@@|     |####/"));
+        console.log(cliColor.yellow("     \\@@@|     |###/"));
+        console.log(cliColor.yellow("      `@@|_____|##'"));
+        console.log(cliColor.yellow("           (O)"));
+        console.log(cliColor.yellow("        .-'''''-."));
+        console.log(cliColor.yellow("      .'  * * *  `."));
+        console.log(cliColor.yellow("     :  *       *  :"));
+        console.log(cliColor.yellow(`    : ~   ${cliColor.green('Y O U')}   ~ :`));
+        console.log(cliColor.yellow(`    : ~   ${cliColor.green('W I N !')} ~ :`));
+        console.log(cliColor.yellow("     :  *       *  :"));
+        console.log(cliColor.yellow("      `.  * * *  .'"));
+        console.log(cliColor.yellow("        `-.....-'"));
 
     }
 
@@ -80,17 +80,17 @@ class Battleship {
      * Display a message when house wins
      */
     computerWins() {
-      console.clear();
-      console.log(
-        logo({
-          name: 'YOU LOSE!',
-          font: fonts[Math.floor(Math.random() * fonts.length)],
-          logoColor: colors[Math.floor(Math.random() * colors.length)],
-          borderColor: colors[Math.floor(Math.random() * colors.length)],
-        })
-        .emptyLine()
-        .render()
-      );
+        console.clear();
+        console.log(
+            logo({
+                name: 'YOU LOSE!',
+                font: fonts[Math.floor(Math.random() * fonts.length)],
+                logoColor: colors[Math.floor(Math.random() * colors.length)],
+                borderColor: colors[Math.floor(Math.random() * colors.length)],
+            })
+                .emptyLine()
+                .render()
+        );
     }
 
 
@@ -98,35 +98,35 @@ class Battleship {
      * You know what it is
      */
     djkhaledwins() {
-      console.clear();
-      console.log(
-        logo({
-          name,
-          font: fonts[Math.floor(Math.random() * fonts.length)],
-          logoColor: colors[Math.floor(Math.random() * colors.length)],
-          borderColor: colors[Math.floor(Math.random() * colors.length)],
-        })
-        .emptyLine()
-        .center('General! You have unlocked the sacred power!')
-        .render()
-      );
-			console.log(cliColor.cyan("     _______________"));
-			console.log(cliColor.cyan("    |@@@@|     |####|"));
-			console.log(cliColor.cyan("    |@@@@|     |####|"));
-			console.log(cliColor.cyan("    |@@@@|     |####|"));
-			console.log(cliColor.cyan("    \\@@@@|     |####/"));
-			console.log(cliColor.cyan("     \\@@@|     |###/"));
-			console.log(cliColor.cyan("      `@@|_____|##'"));
-			console.log(cliColor.cyan("           (O)"));
-			console.log(cliColor.cyan("        .-'''''-."));
-			console.log(cliColor.cyan("      .'  * * *  `."));
-			console.log(cliColor.cyan("     :  *       *  :"));
-			console.log(cliColor.cyan(`    : ~ ${cliColor.blue('DJ KHALED')} ~ :`));
-			console.log(cliColor.cyan(`   : ~   ${cliColor.blue('ALWAYS')}    ~ :`));
-			console.log(cliColor.cyan(`    : ~   ${cliColor.blue('WINS')}    ~ :`));
-			console.log(cliColor.cyan("     :  *       *  :"));
-			console.log(cliColor.cyan("      `.  * * *  .'"));
-			console.log(cliColor.cyan("        `-.....-'"));
+        console.clear();
+        console.log(
+            logo({
+                name,
+                font: fonts[Math.floor(Math.random() * fonts.length)],
+                logoColor: colors[Math.floor(Math.random() * colors.length)],
+                borderColor: colors[Math.floor(Math.random() * colors.length)],
+            })
+                .emptyLine()
+                .center('General! You have unlocked the sacred power!')
+                .render()
+        );
+        console.log(cliColor.cyan("     _______________"));
+        console.log(cliColor.cyan("    |@@@@|     |####|"));
+        console.log(cliColor.cyan("    |@@@@|     |####|"));
+        console.log(cliColor.cyan("    |@@@@|     |####|"));
+        console.log(cliColor.cyan("    \\@@@@|     |####/"));
+        console.log(cliColor.cyan("     \\@@@|     |###/"));
+        console.log(cliColor.cyan("      `@@|_____|##'"));
+        console.log(cliColor.cyan("           (O)"));
+        console.log(cliColor.cyan("        .-'''''-."));
+        console.log(cliColor.cyan("      .'  * * *  `."));
+        console.log(cliColor.cyan("     :  *       *  :"));
+        console.log(cliColor.cyan(`    : ~ ${cliColor.blue('DJ KHALED')} ~ :`));
+        console.log(cliColor.cyan(`   : ~   ${cliColor.blue('ALWAYS')}    ~ :`));
+        console.log(cliColor.cyan(`    : ~   ${cliColor.blue('WINS')}    ~ :`));
+        console.log(cliColor.cyan("     :  *       *  :"));
+        console.log(cliColor.cyan("      `.  * * *  .'"));
+        console.log(cliColor.cyan("        `-.....-'"));
     }
 
     StartGame() {
@@ -166,7 +166,8 @@ class Battleship {
                 console.log(cliColor.blue("Miss"));
             }
             if (this.enemyFleet.isSunk()) {
-                console.log(cliColor.green("You are the winner!"));
+                this.userWins();
+                // console.log(cliColor.green("You are the winner!"));
                 break;
             }
 
@@ -190,7 +191,8 @@ class Battleship {
                 console.log(cliColor.green(`Computer shot in ${computerPos.column}${computerPos.row} and missed.`));
             }
             if (this.myFleet.isSunk()) {
-                console.log(cliColor.red("You lost!"));
+                this.computerWins();
+                // console.log(cliColor.red("You lost!"));
                 break;
             }
             console.log("\n_________________________________________________________________________\n");
@@ -200,7 +202,8 @@ class Battleship {
 
     static ParsePosition(input) {
         if (input === "djkhaled") {
-            console.log(cliColor.yellow("\nAll I do is win, win, win no matter what!\n"));
+            // console.log(cliColor.yellow("\nAll I do is win, win, win no matter what!\n"));
+            this.djkhaledwins();
             process.exit(0);
         }
         var letter = letters.get(input.toUpperCase().substring(0, 1));
