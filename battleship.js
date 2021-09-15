@@ -148,6 +148,10 @@ class Battleship {
             this.PrintEnemyFleet();
             console.log("Enter coordinates for your shot (e.g. A3):");
             var position = Battleship.ParsePosition(readline.question());
+            if (position === "djkhaled") {
+                this.djkhaledwins();
+                process.exit(0);
+            }
             var isHit = gameController.CheckIsHit(this.enemyFleet.ships, position);
             if (isHit) {
                 beep();
@@ -202,8 +206,7 @@ class Battleship {
     static ParsePosition(input) {
         if (input === "djkhaled") {
             // console.log(cliColor.yellow("\nAll I do is win, win, win no matter what!\n"));
-            this.djkhaledwins();
-            process.exit(0);
+            return "djkhaled";
         }
         var letter = letters.get(input.toUpperCase().substring(0, 1));
         var number = parseInt(input.substring(1), 10);
